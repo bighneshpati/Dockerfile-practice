@@ -1,12 +1,8 @@
-FROM ubuntu:latest
+FROM python:latest
 
-LABEL version="0.0.1"
+LABEL version="1.0"
 LABEL maintainer="bighneshpati@gmail.com"
 
-RUN apt-get update && apt-get upgrade -y
+ADD my_script.py /
 
-RUN apt-get install nginx -y
-
-EXPOSE 80
-
-CMD [ "nginx","-g","daemon off;"]
+CMD [ "python","./my_script.py" ]
